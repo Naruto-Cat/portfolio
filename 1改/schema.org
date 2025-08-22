@@ -1,0 +1,69 @@
+注意：在html文件中，要放在<head>裡。
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://example.com/#website",
+      "url": "https://example.com/",
+      "name": "貓咪品種小百科",
+      "description": "貓咪品種小百科：特色、個性、照護與壽命，一次看懂並可隨機顯示 5 種貓咪品種與搜尋篩選。",
+      "inLanguage": "zh-Hant",
+      "publisher": {
+        "@type": "Organization",
+        "name": "喵喵百科",
+        "url": "https://example.com/"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://example.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://example.com/#webpage",
+      "url": "https://example.com/",
+      "name": "貓咪品種小百科｜特色、個性、照護與壽命",
+      "isPartOf": { "@id": "https://example.com/#website" },
+      "inLanguage": "zh-Hant",
+      "about": [
+        { "@type": "Thing", "name": "貓咪品種" },
+        { "@type": "Thing", "name": "貓咪照護" },
+        { "@type": "Thing", "name": "貓咪個性" }
+      ],
+      "keywords": [
+        "貓咪品種","貓咪特色","貓咪個性","貓咪照護","貓咪壽命",
+        "新手養貓","長毛貓","短毛貓","親人貓","高活動量貓","低活動量貓"
+      ],
+      "datePublished": "2025-08-11",
+      "dateModified": "2025-08-11",
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "常見貓咪品種",
+        "itemListOrder": "ItemListOrderAscending",
+        "numberOfItems": 15,
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1,  "url": "https://example.com/#maine-coon",         "name": "緬因庫恩（Maine Coon）" },
+          { "@type": "ListItem", "position": 2,  "url": "https://example.com/#siamese",             "name": "暹羅（Siamese）" },
+          { "@type": "ListItem", "position": 3,  "url": "https://example.com/#british-shorthair",   "name": "英國短毛（British Shorthair）" },
+          { "@type": "ListItem", "position": 4,  "url": "https://example.com/#scottish-fold",       "name": "蘇格蘭摺耳（Scottish Fold）" },
+          { "@type": "ListItem", "position": 5,  "url": "https://example.com/#bengal",              "name": "孟加拉（Bengal）" },
+          { "@type": "ListItem", "position": 6,  "url": "https://example.com/#ragdoll",             "name": "布偶（Ragdoll）" },
+          { "@type": "ListItem", "position": 7,  "url": "https://example.com/#persian",             "name": "波斯（Persian）" },
+          { "@type": "ListItem", "position": 8,  "url": "https://example.com/#abyssinian",          "name": "阿比西尼亞（Abyssinian）" },
+          { "@type": "ListItem", "position": 9,  "url": "https://example.com/#sphynx",              "name": "斯芬克斯（Sphynx）" },
+          { "@type": "ListItem", "position": 10, "url": "https://example.com/#norwegian-forest",    "name": "挪威森林（Norwegian Forest）" },
+          { "@type": "ListItem", "position": 11, "url": "https://example.com/#russian-blue",        "name": "俄羅斯藍（Russian Blue）" },
+          { "@type": "ListItem", "position": 12, "url": "https://example.com/#oriental",            "name": "東方短毛（Oriental Shorthair）" },
+          { "@type": "ListItem", "position": 13, "url": "https://example.com/#american-shorthair",  "name": "美國短毛（American Shorthair）" },
+          { "@type": "ListItem", "position": 14, "url": "https://example.com/#scottish-straight",   "name": "蘇格蘭直耳（Scottish Straight）" },
+          { "@type": "ListItem", "position": 15, "url": "https://example.com/#exotic",              "name": "異國短毛（Exotic Shorthair）" }
+        ]
+      }
+    }
+  ]
+}
+</script>
