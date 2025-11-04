@@ -1,0 +1,143 @@
+.info::backdrop {
+  backdrop-filter: blur(40px);
+}
+
+.info::selection {
+  background-color: rgb(238, 229, 229);
+}
+
+.info {
+  /* 覆蓋瀏覽器預設 */
+  outline: none;
+
+  border: 5px solid rgb(107, 103, 103);
+  border-radius: 40px;
+  padding: 40px;
+}
+
+.info h3 {
+  text-align: center;
+  font-size: 50px;
+  /* 覆蓋瀏覽器預設 */
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+.info li {
+  font-size: 30px;
+  line-height: 2;
+}
+
+.info-btn {
+  /* 覆蓋瀏覽器預設 */
+  outline: none;
+
+  font-size: 30px;
+  padding: 10px;
+  width: 110px;
+  border: 3px solid rgb(107, 103, 103);
+  background-color: white;
+  border-radius: 10px;
+
+  margin-top: 50px;
+  display: block;
+  margin-inline: auto;
+}
+
+.info-btn:hover {
+  background-color: rgb(107, 103, 103);
+  color: white;
+  cursor: pointer;
+}
+
+.cotainer {
+  width: 900px;
+  border: 5px solid rgb(238, 229, 229);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  padding: 40px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.cotainer::selection {
+  background-color: rgb(238, 229, 229);
+}
+
+h1 {
+  /* border: 1px solid black; */
+  font-size: 75px;
+
+  /* 覆蓋瀏覽器預設 */
+  margin-top: 0;
+  margin-bottom: 60px;
+}
+
+.game-desc {
+  /* border: 1px solid black; */
+  font-size: 35px;
+
+  /* 覆蓋瀏覽器預設 */
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+form {
+  /* border: 1px solid black; */
+  font-size: 35px;
+}
+
+.input {
+  width: 170px;
+  padding: 10px;
+  border: 3px solid rgb(238, 229, 229);
+  border-radius: 10px;
+}
+
+.check {
+  margin-left: 10px;
+  padding: 10px;
+  width: 110px;
+  border: 3px solid rgb(238, 229, 229);
+  background-color: white;
+  border-radius: 10px;
+}
+
+.check:enabled:hover {
+  background-color: rgb(238, 229, 229);
+  cursor: pointer;
+}
+
+.tip {
+  /* border: 1px solid black; */
+  font-size: 30px;
+  /* 覆蓋瀏覽器預設 */
+  margin-top: 70px;
+  margin-bottom: 40px;
+}
+
+.record {
+  /* border: 1px solid black; */
+  font-size: 30px;
+  line-height: 1.5;
+  /* 覆蓋瀏覽器預設 */
+  margin-top: 0;
+  margin-bottom: 0px;
+}
+
+.play-again {
+  font-size: 35px;
+  padding: 10px;
+  width: 250px;
+  border: 3px solid rgb(238, 229, 229);
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.play-again:hover {
+  background-color: rgb(238, 229, 229);
+  cursor: pointer;
+}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜數字</title>
+    <!-- CSS Reset：modern-normalize -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 說明視窗 -->
+    <dialog class="info">
+        <h3>說明</h3>
+        <ol>
+            <li>本頁僅作為個人作品集展示，不做任何營利或商業用途。</li>
+            <li>答案可在瀏覽器開發者工具（F12）→「Console／主控台」查看。</li>
+            <li>若不輸入內容，或輸入「0、超過 100、負數、含小數點」，系統都會給出回應。</li>
+        </ol>
+        <div>
+            <button class="info-btn" type="button">了解</button>
+        </div>
+    </dialog>
+
+
+    <div class="cotainer">
+        <h1>猜數字遊戲</h1>
+        <p class="game-desc">小遊戲開始！猜猜我們選了哪個 1-100 的隨機數。</p>
+        <form>
+            <label>
+                猜一個數字：
+                <input class="input" type="number" min="1" max="100" autofocus>
+                <!-- 只能輸入整數、浮點數 -->
+            </label>
+            <button class="check" type="button">提交</button>
+        </form>
+        <p class="tip"></p> <!-- 提示 -->
+        <p class="record"></p> <!-- 紀錄 -->
+        <!-- 再玩一次按鈕 -->
+        <button class="play-again" type="button" hidden>再玩一次</button>
+    </div>
+
+    <!-- 說明視窗的JS -->
+    <script>
+        //抓元素
+        const dlg = document.querySelector('.info');
+        const dlgBtn = document.querySelector('.info-btn');
+
+        //
+        dlg.showModal();
+
+        //
+        dlgBtn.addEventListener("click", close);
+
+        //
+        function close() {
+            dlg.close();
+        }
+    </script>
+
+    <!-- 頁面的JS -->
+    <script>
+        //抓元素
+        const ipt = document.querySelector('.input');
+        const checkBtn = document.querySelector('.check');
+        const record = document.querySelector('.record');
+        const tip = document.querySelector('.tip');
+        const playAgainBtn = document.querySelector('.play-again');
+
+        //一進頁就執行
+        let randomNumber;
+        getAnswer();
+
+        //產生答案
+        function getAnswer() {
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+            /*
+             乘100，是為了調整成 0~99
+             加1，是為了調整成 1~100
+             */
+            console.log(`答案是 ${randomNumber}`);
+        }
+
+        //按下提交，先檢查格式
+        checkBtn.addEventListener("click", checkInput);
+
+
+        //檢查格式
+        function checkInput() {
+            //禁空白
+            if (ipt.value === "") {
+                tip.textContent = "空白不收件～請輸入後再送出 📦";
+                ipt.focus();
+            }
+
+            //才開始轉數字
+            else {
+                let iptValue = Number(ipt.value);
+
+                if (iptValue > 100) {
+                    tip.textContent = "超過 100 會害我當機啦（誤）😂";
+                    ipt.focus();
+                }
+
+                else if (Number.isInteger(iptValue) && iptValue < 0) {
+                    tip.textContent = "負數是外星語～ 系統只懂 0 以上 🛸";
+                    ipt.focus();
+                }
+
+                else if (iptValue === 0) {
+                    tip.textContent = "零分退場～ 請加點分數再回來 👋";
+                    ipt.focus();
+                }
+
+                //有小數點
+                else if (!Number.isInteger(iptValue) && iptValue > 0) {
+                    tip.textContent = "去角質一下～ 把那顆小數點磨掉 🧽";
+                    ipt.focus();
+                }
+                else if (!Number.isInteger(iptValue) && iptValue < 0) {
+                    tip.textContent = "負能量還加小數？這太重口味～ 😵";
+                    ipt.focus();
+                }
+
+                //都沒問題，正式檢查
+                else {
+                    checkValue()
+                }
+            }
+        }
+
+        //存放 user 輸入過的數字
+        let userRecord = [];
+
+        //正式檢查
+        function checkValue() {
+            let iptValue = Number(ipt.value);
+
+            if (iptValue === randomNumber) {
+                tip.textContent = "中啦中啦～你是答案狙擊手 🔫";
+                record.textContent = "";
+                //遊戲結束
+                end()
+            }
+
+            else if (iptValue > randomNumber) {
+                tip.textContent = "再小一點 ⬇️";
+                ipt.focus();
+                userRecord.push(iptValue);
+                record.textContent = `紀錄： ${userRecord.join('、')}`;
+            }
+
+            else if (iptValue < randomNumber) {
+                tip.textContent = "再大一點 ⬆️";
+                ipt.focus();
+                userRecord.push(iptValue);
+                record.textContent = `紀錄： ${userRecord.join('、')}`;
+            }
+        }
+
+        //遊戲結束
+        function end() {
+            //禁用
+            ipt.disabled = true;
+            checkBtn.disabled = true;
+            //出現「再玩一次」
+            playAgainBtn.hidden = false;
+            playAgainBtn.addEventListener("click", again);
+        }
+
+        //再玩一次
+        function again() {
+            playAgainBtn.hidden = true;
+
+            //禁用取消
+            ipt.disabled = false;
+            checkBtn.disabled = false;
+            ipt.focus();
+
+            //清空
+            console.clear();
+            tip.textContent = "";
+            ipt.value = "";
+            userRecord = [];
+
+            getAnswer() //答案刷新
+        }
+    </script>
+</body>
+
+</html>
