@@ -20,12 +20,13 @@
             <li>若不輸入內容，或輸入「0、超過 100、負數、含小數點」，系統都會給出回應。</li>
         </ol>
         <div>
+            <!-- 了解按鈕 -->
             <button class="info-btn" type="button">了解</button>
         </div>
     </dialog>
 
-
-    <div class="cotainer">
+    <!-- 網頁 -->
+    <div class="wrap">
         <h1>猜數字遊戲</h1>
         <p class="game-desc">小遊戲開始！猜猜我們選了哪個 1-100 的隨機數。</p>
         <form>
@@ -34,6 +35,7 @@
                 <input class="input" type="number" min="1" max="100" autofocus>
                 <!-- 只能輸入整數、浮點數 -->
             </label>
+            <!-- 提交按鈕 -->
             <button class="check" type="button">提交</button>
         </form>
         <p class="tip"></p> <!-- 提示 -->
@@ -48,10 +50,10 @@
         const dlg = document.querySelector('.info');
         const dlgBtn = document.querySelector('.info-btn');
 
-        //
+        //只顯示<dialog>，無法觸及其他頁面內容
         dlg.showModal();
 
-        //
+        //按下「了解」按鈕，關閉<dialog>
         dlgBtn.addEventListener("click", close);
 
         //
