@@ -32,7 +32,7 @@
         <form>
             <label>
                 猜一個數字：
-                <input class="input" type="number" min="1" max="100" autofocus>
+                <input class="input" type="number" min="1" max="100">
                 <!-- 只能輸入整數、浮點數 -->
             </label>
             <!-- 提交按鈕 -->
@@ -49,29 +49,29 @@
         //抓元素
         const dlg = document.querySelector('.info');
         const dlgBtn = document.querySelector('.info-btn');
+        const ipt = document.querySelector('.input');
 
         //只顯示<dialog>，無法觸及其他頁面內容
         dlg.showModal();
 
         //按下「了解」按鈕，關閉<dialog>
-        dlgBtn.addEventListener("click", close);
+        dlgBtn.addEventListener("click", closeDlg);
 
-        //
-        function close() {
+        function closeDlg() {
             dlg.close();
+            ipt.focus();
         }
     </script>
 
     <!-- 頁面的JS -->
     <script>
         //抓元素
-        const ipt = document.querySelector('.input');
         const checkBtn = document.querySelector('.check');
         const record = document.querySelector('.record');
         const tip = document.querySelector('.tip');
         const playAgainBtn = document.querySelector('.play-again');
 
-        //一進頁就執行
+        //一進頁就執行    
         let randomNumber;
         getAnswer();
 
